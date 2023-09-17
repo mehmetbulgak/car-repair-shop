@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+  /* COLORS */
+  --BGCOLOR: #0F172A;
+  --BORDER-COLOR: #FFF;
+  --COLOR: #FFF;
+  --ERROR: firebrick;
+  --INACTIVE: lightgray;
+  --LINK-COLOR: whitesmoke;
+  --LINK-HOVER: rgba(245, 245, 245, 0.9);
+  --NOTE-BGCOLOR: hsla(240, 64%, 27%, 0.65);
+  --STATUS-COMPLETE: limegreen;
+  --STATUS-OPEN: firebrick;
+  --TABLE-BGCOLOR: #FFF;
+  --TABLE-COLOR: #000;
+  --INPUT-INVALID: #F00;
+  --DARK-GRAY: #7a7a7a;
+}
+
+.errmsg {
+  display: inline-block;
+  background-color: var(--TABLE-BGCOLOR);
+  color: var(--ERROR);
+  padding: 0.25em;
+  margin-bottom: 0.5em;
+}
+
+.errmsg a:any-link {
+  color: var(--ERROR);
+  text-decoration: underline;
+}
+
+a:any-link {
+  color: white;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.icon-button {
+  width: 48px;
+  height: 48px;
+  font-size: 2.5rem;
+  background-color: transparent;
+  border: none;
+  color: var(--COLOR);
+  display: grid;
+  place-content: center;
+}
+
+.icon-button:hover,
+.icon-button:focus-visible {
+  transform: scale(1.2);
+}
+
+.icon-button[disabled] {
+  visibility: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background-color: rgb(33, 33, 33);
+  color: white;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--LINK-HOVER);
+}
+
+.welcome-container {
+  flex-grow: 1;
+  color: white;
+}
+
+.welcome-main {
+  flex-grow: 1;
+  background-image: url('./img/car-repair.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.welcome-main::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+}
+
+.welcome-content {
+  position: relative;
+  height: 100vh;
+}
+
+.welcome-login-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: var(--DARK-GRAY);
+  padding: 15px 25px;
+  color: black;
+}
+
+.welcome-left {
+  position: absolute;
+  top: 30%;
+  transform: translate(0, -30%);
+}
+
+.welcome-left p {
+  background-color: black;
+  font-size: 3rem;
+  padding: 0.7em;
+}
+
+.welcome-left address {
+  background-color: black;
+  display: inline-block;
+  padding: 1.5em;
+}
+
+.welcome-left a {
+  color: white;
+}
+
+.login-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-header {
+  margin-bottom: 25px;
+}
+
+.login-form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-input {
+  margin-bottom: 20px;
+  padding: 0.5em;
+  outline: none;
+}
+
+.login-form button {
+  margin-bottom: 30px;
+  font-size: 0.8em;
+  cursor: pointer;
+  background-color: var(--DARK-GRAY);
+  border: none;
+  padding: 0.5em;
+}
+
+.login-form-persist {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.5em;
+}
+
+.login-form-checkbox {
+  width: 24px;
+  height: 24px;
+}
+
+.login-back-to-home {
+  margin-top: 30px;
+}
+
+.home-container p {
+  margin-bottom: 20px;
+}
+
+.home-container h1 {
+  margin-bottom: 20px;
+}
+
+.dash-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--DARK-GRAY);
+  padding: 20px 0.5em;
+}
+
+.dash-header-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dash-header-container-small {
+  max-width: 800px;
+}
+
+.dash-header-nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  gap: 0.5em;
+}
+
+.dash-container {
+  padding: 0.75em 0.5em 0.5em;
+  flex-grow: 1;
+}
+
+.dash-footer {
+  font-size: 1rem;
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  background-color: var(--DARK-GRAY);
+  padding: 0.5em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  gap: 1em;
+}
+
+.dash-footer-button {
+  font-size: 1rem;
+  width: auto;
+  height: auto;
+}
+
+thead,
+tbody,
+tr {
+  display: contents;
+}
+
+.table {
+  font-size: 1rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  color: var(--TABLE-COLOR);
+  gap: 0.1em;
+}
+
+.table-button {
+  padding: 0.25em;
+  font-size: 1.5rem;
+  color: var(--TABLE-COLOR);
+}
+
+.table-thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table-th,
+.table-cell {
+  background-color: var(--TABLE-BGCOLOR);
+  text-align: left;
+  border: 1px solid var(--TABLE-COLOR);
+  padding: 0.5em;
+}
+
+.table-cell:last-child {
+  display: grid;
+  place-content: center;
+}
+
+.table-cell--inactive {
+  background-color: var(--INACTIVE);
+}
+
+.note-created,
+.note-updated,
+.note-username {
+  display: none;
+}
+
+.note-status {
+  font-weight: bold;
+}
+
+.note-status-open {
+  color: var(--STATUS-OPEN);
+}
+
+.note-status-completed {
+  color: var(--STATUS-COMPLETE);
+}
+
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.75em;
+  max-width: 800px;
+}
+
+.form-checkbox-container {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 0.5em;
+}
+
+.form-persist {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.5em;
+}
+
+.form-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-input,
+.form-submit-button {
+  padding: 0.5em;
+}
+
+.form-input-text {
+  min-height: 150px;
+}
+
+.form-checkbox {
+  width: 24px;
+  height: 24px;
+}
+
+.form-select {
+  width: fit-content;
+  padding: 0.25em;
+}
+
+.form-action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5em;
+  position: absolute;
+  right: 0.5em;
+}
+
+.form-row {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2em;
+}
+
+.form-divider {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5em;
+}
+
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .dash-header-nav {
+    gap: 0;
+  }
+
+  .icon-button {
+    font-size: 1.5rem;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+
+  body {
+    font-size: 1.25rem;
+  }
+
+  .dash-header {
+    padding: 0.5em 1em;
+  }
+
+  .dash-container {
+    padding: 1em;
+  }
+
+  .table {
+    font-size: 1.5rem;
+  }
+
+  .table-notes {
+    grid-template-columns: repeat(3, 1fr) 2fr repeat(2, 1fr);
+  }
+
+  .note-created,
+  .note-updated,
+  .note-username {
+    display: block
+  }
+
+  .form-action-buttons {
+    position: static;
+  }
+}
