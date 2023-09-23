@@ -25,7 +25,7 @@ Overall, the project aims to simplify user management and enhance security in we
 To set up the project on your local machine, follow these steps:
 
 Clone this repository:
-git clone https://github.com/YOUR_USERNAME/car-repair-shop.git
+git clone https://github.com/mehmetbulgak/car-repair-shop.git
 cd car-repair-shop
 
 Install the required dependencies:
